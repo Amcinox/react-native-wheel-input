@@ -1,5 +1,5 @@
 {
-  "name": "react-native-wheel-input",
+  "name": "@remirage/react-native-wheel-input",
   "version": "1.0.0",
   "description": "react-native-radial-input-slider is a React Native component that allows users to select a value using a circular radial slider while also providing a direct input field in the center for manual number entry.",
   "homepage": "https://github.com/Amcinox/react-native-wheel-input#readme",

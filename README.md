@@ -1,77 +1,62 @@
-![Radial Slider - Simform](./assets/banner.png)
+![Radial Slider](./assets/banner.png)
 
-# react-native-radial-slider
+# react-native-radial-input-slider
 
-[![react-native-radial-slider on npm](https://img.shields.io/npm/v/react-native-radial-slider.svg?style=flat)](https://www.npmjs.com/package/react-native-radial-slider) [![react-native-radial-slider downloads](https://img.shields.io/npm/dm/react-native-radial-slider)](https://www.npmtrends.com/react-native-radial-slider) [![react-native-radial-slider install size](https://packagephobia.com/badge?p=react-native-radial-slider)](https://packagephobia.com/result?p=react-native-radial-slider) [![Android](https://img.shields.io/badge/Platform-Android-green?logo=android)](https://www.android.com) [![iOS](https://img.shields.io/badge/Platform-iOS-green?logo=apple)](https://developer.apple.com/ios) [![MIT](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/licenses/MIT)
+[![npm version](https://img.shields.io/npm/v/react-native-radial-input-slider.svg?style=flat)](https://www.npmjs.com/package/react-native-radial-input-slider) [![downloads](https://img.shields.io/npm/dm/react-native-radial-input-slider)](https://www.npmtrends.com/react-native-radial-input-slider) [![install size](https://packagephobia.com/badge?p=react-native-radial-input-slider)](https://packagephobia.com/result?p=react-native-radial-input-slider)
 
 ---
 
-This is a pure javascript and react-native-svg based library that provides many variants of `Radial Slider` and `Speedo Meter` including `default`, `radial-circle-slider`, `speedometer` and `speedometer-marker`
+## About
 
-Radial Slider allows you to select any specific value from a range of values. It comes with two variants, one is default which allows selection on a 180-degree arc and the second one is 360-degree which allows selection of values on a complete circle. It can be used to select/set goals, vision, range, etc.
+`react-native-radial-input-slider` is a React Native component that provides a radial slider with an integrated input field for direct value entry. It allows users to select a specific value using a circular slider while also offering a text input for precise adjustments.
 
-The Speedo Meter allows you to highlight a specific value from a range of values. It comes with two variants, the default one shows a needle and another one shows marking values with a needle. It can be used to display the speed of the internet, vehicle, fan, etc.
+### Features:
 
-This library is easy to use and provides you complete customization, so you can customize components based on your need.
+✅ **Radial Slider:** Smooth, circular value selection.
+✅ **Direct Input:** Users can enter values manually.
+✅ **Customizable:** Modify colors, sizes, and behaviors.
+✅ **Dynamic Updates:** Syncs values instantly.
+✅ **Ideal for Transactions:** Perfect for selecting amounts, budgets, or other numerical inputs.
+
+---
 
 ## 🎬 Preview
 
-| RadialSlider                                          | SpeedoMeter                                         |
-| ----------------------------------------------------- | --------------------------------------------------- |
-| ![alt RadialSlider](./assets/RadialSliderExample.gif) | ![alt SpeedoMeter](./assets/SpeedoMeterExample.gif) |
+| Radial Input Slider |
+|---------------------|
+| ![Radial Input Slider](./assets/RadialInputExample.gif) |
 
 ---
-
-## Quick Access
-
-[Installation](#installation) | [RadialSlider](#radialslider) | [SpeedoMeter](#speedometer) | [Properties](#properties) | [Example](#example) | [License](#license)
 
 ## Installation
 
-##### 1. Install library and react-native-svg
-
-```bash
-$ npm install react-native-radial-slider react-native-svg
-# --- or ---
-$ yarn add react-native-radial-slider react-native-svg
+```sh
+npm install react-native-radial-input-slider react-native-svg
+# or
+yarn add react-native-radial-input-slider react-native-svg
 ```
 
-##### 2. Install cocoapods in the ios project
+For iOS, run:
 
-```bash
+```sh
 cd ios && pod install
 ```
 
-##### Know more about [react-native-svg](https://www.npmjs.com/package/react-native-svg)
-
-# RadialSlider
-
-- RadialSlider has two different variants, 'default' and 'radial-circle-slider'
-- RadialSlider can be used to select / set goal, vision, range etc
-
-## Default RadialSlider
-
-#### 🎬 Preview
-
 ---
 
-![Default RadialSlider](./assets/RadialSlider.gif)
-
-#### Usage
-
----
+## Usage
 
 ```jsx
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { RadialSlider } from 'react-native-radial-slider';
+import { RadialInputSlider } from 'react-native-radial-input-slider';
 
-const RadialVariant = () => {
-  const [speed, setSpeed] = useState(0);
+const Example = () => {
+  const [value, setValue] = useState(50);
 
   return (
     <View style={styles.container}>
-      <RadialSlider value={speed} min={0} max={200} onChange={setSpeed} />
+      <RadialInputSlider value={value} min={0} max={100} onChange={setValue} />
     </View>
   );
 };
@@ -83,143 +68,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RadialVariant;
-```
-
-## Radial Circle Slider
-
-#### 🎬 Preview
-
----
-
-![Default RadialCircleSlider](./assets/RadialCircle.gif)
-
-#### Usage
-
----
-
-```jsx
-import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { RadialSlider } from 'react-native-radial-slider';
-
-const RadialVariant = () => {
-  const [speed, setSpeed] = useState(0);
-
-  return (
-    <View style={styles.container}>
-      <RadialSlider
-        variant={'radial-circle-slider'}
-        value={speed}
-        min={0}
-        max={200}
-        onChange={setSpeed}
-      />
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-});
-
-export default RadialVariant;
-```
-
-# SpeedoMeter
-
-> The speedometer will not take user inputs, when we need to update dynamic values at that time we can use it
-
-- SpeedoMeter has two different variants, speedometer and speedometer-marker
-- SpeedoMeter can be used to display the speed of an internet, vehicle, fan etc
-
-## SpeedoMeter
-
-#### 🎬 Preview
-
----
-
-![Default SpeedoMeter](./assets/SpeedoMeter.gif)
-
-#### Usage
-
----
-
-```jsx
-import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { RadialSlider } from 'react-native-radial-slider';
-
-const SpeedoMeterVariant = () => {
-  const [speed, setSpeed] = useState(0);
-
-  return (
-    <View style={styles.container}>
-      <RadialSlider
-        variant={'speedometer'}
-        value={speed}
-        min={0}
-        max={200}
-        onChange={setSpeed}
-      />
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-});
-
-export default SpeedoMeterVariant;
-```
-
-## SpeedoMeter Marker
-
-#### 🎬 Preview
-
----
-
-![Default SpeedoMeterMarker](./assets/SpeedoMeterMarker.gif)
-
-#### Usage
-
----
-
-```jsx
-import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { RadialSlider } from 'react-native-radial-slider';
-
-const SpeedoMeterVariant = () => {
-  const [speed, setSpeed] = useState(0);
-
-  return (
-    <View style={styles.container}>
-      <RadialSlider
-        variant={'speedometer-marker'}
-        value={speed}
-        min={0}
-        max={200}
-        onChange={setSpeed}
-      />
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-});
-
-export default SpeedoMeterVariant;
+export default Example;
 ```
 
 ---
@@ -300,19 +149,12 @@ yarn example ios   // For ios
 yarn example android   // For Android
 ```
 
-## Find this library useful? ❤️
-
-Support it by joining [stargazers](https://github.com/SimformSolutionsPvtLtd/react-native-radial-slider/stargazers) for this repository.⭐
-
-## 🤝 How to Contribute
-
-We'd love to have you improve this library or fix a problem 💪
-Check out our [Contributing Guide](CONTRIBUTING.md) for ideas on contributing.
-
-## Bugs / Feature requests / Feedbacks
-
-For bugs, feature requests, and discussion please use [GitHub Issues](https://github.com/SimformSolutionsPvtLtd/react-native-radial-slider/issues)
 
 ## License
 
-- [MIT License](LICENSE)
+This project is licensed under the MIT License.
+
+### Credits
+
+This package was inspired by [react-native-radial-slider](https://github.com/SimformSolutionsPvtLtd/react-native-radial-slider) by Simform. The original package provided the base implementation for radial sliders, which was adapted and enhanced for this library.
+
